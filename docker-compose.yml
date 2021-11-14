@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ip-change-notifier:
+    build: .
+    environment:
+      SLACK_URL: 'https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX'
+# you can also specify SLACK_URL env by env_file.
+#   env_file:
+#     - example.env
