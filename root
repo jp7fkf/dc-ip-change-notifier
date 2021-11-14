@@ -1,0 +1,2 @@
+# min   hour    day     month   weekday command
+*/30     *       *       *       *       python /app/ip-change-notifier.py >> /app/ip-change-notifier.log 2>&1
