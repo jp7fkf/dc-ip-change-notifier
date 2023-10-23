@@ -1,0 +1,25 @@
+[Unit]
+Description=docker compose ip-change-notifier service
+Requires=docker.service
+
+[Service]
+User=root
+Type=simple
+
+WorkingDirectory=/home/composer/dc-ip-change-notifier/
+
+ExecStartPre=docker compose kill
+ExecStartPre=docker compose rm -v -f
+ExecStartPre=docker compose down
+
+ExecStart=docker compose up --force-recreate --abort-on-container-exit
+
+ExecStop=docker compose stop
+ExecStopPost=docker compose rm -v -f
+ExecStopPost=docker compose down
+
+Restart=always
+RestartSec=180s
+
+[Install]
+WantedBy=multi-user.target
